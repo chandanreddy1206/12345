@@ -20,4 +20,5 @@
     <string name="title_activity_tabbed">Events</string>
 	<string name="chat_voice">Voice Chat</string>
     <string name="chat_video">Video Chat</string>
+   <string name="registration_title">Register</string> 
 </resources>

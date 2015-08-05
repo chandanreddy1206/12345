@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -142,14 +143,17 @@ public class ChatActivity extends Fragment {
 
 				@Override
 				public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-					// TODO Auto-generated method stub
+					TypedValue tv = new TypedValue();
 					if (mLastFirstVisibleItem < firstVisibleItem) {
-						System.out.println(attr.actionBarSize);
 						getActivity().getActionBar().hide();
 						
 					}
 					if (mLastFirstVisibleItem > firstVisibleItem) {
-						System.out.println(attr.actionBarSize);
+
+						if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+						{
+						    System.out.println(TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics()));
+						}
 						getActivity().getActionBar().show();
 					}
 					mLastFirstVisibleItem = firstVisibleItem;
